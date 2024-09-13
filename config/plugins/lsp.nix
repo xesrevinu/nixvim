@@ -1,6 +1,7 @@
 let
   inherit (import ../utilities.nix) inoremap nnoremap;
-in {
+in
+{
   plugins = {
     fidget = {
       enable = true;

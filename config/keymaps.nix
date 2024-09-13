@@ -1,6 +1,7 @@
 let
   inherit (import ./utilities.nix) nnoremap tnoremap vnoremap;
-in {
+in
+{
   keymaps = [
     ##########################################################################
     # General Keymaps
@@ -184,8 +185,12 @@ in {
 
     # Harpoon
     (nnoremap "<leader>ho" "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>" "[H]arpoon [O]pen")
-    (nnoremap "<leader>ha" "<cmd>lua require('harpoon.mark').add_file()<cr>" "[H]arpoon [A]dd Current File")
-    (nnoremap "<leader>hr" "<cmd>lua require('harpoon.mark').rm_file()<cr>" "[H]arpoon [R]emove Current File")
+    (nnoremap "<leader>ha" "<cmd>lua require('harpoon.mark').add_file()<cr>"
+      "[H]arpoon [A]dd Current File"
+    )
+    (nnoremap "<leader>hr" "<cmd>lua require('harpoon.mark').rm_file()<cr>"
+      "[H]arpoon [R]emove Current File"
+    )
     (nnoremap "<leader>hc" "<cmd>lua require('harpoon.mark').clear_all()<cr>" "[H]arpoon [C]lear")
     (nnoremap "<leader>h1" "<cmd>lua require('harpoon.ui').nav_file(1)<cr>" "[H]arpoon File [1]")
     (nnoremap "<leader>h2" "<cmd>lua require('harpoon.ui').nav_file(2)<cr>" "[H]arpoon File [2]")
@@ -198,7 +203,9 @@ in {
 
     # Spectre
     (nnoremap "<leader>S" "<cmd>lua require('spectre').toggle()<cr>" "Toggle [S]pectre")
-    (nnoremap "<leader>sw" "<cmd>lua require('spectre').open_visual({ select_word = true })<cr>" "[S]earch Current [W]ord")
+    (nnoremap "<leader>sw" "<cmd>lua require('spectre').open_visual({ select_word = true })<cr>"
+      "[S]earch Current [W]ord"
+    )
     (vnoremap "<leader>sw" "<cmd>lua require('spectre').open_visual()<cr>" "[S]earch Current [W]ord")
 
     # Telescope
@@ -238,11 +245,23 @@ in {
 
     # Trouble
     (nnoremap "<leader>xx" "<cmd>Trouble preview_split toggle<cr>" "[T]rouble Diagnostics Toggle")
-    (nnoremap "<leader>xX" "<cmd>Trouble preview_split toggle filter.buf=0<cr>" "[T]rouble Buffer Diagnostics Toggle")
-    (nnoremap "<leader>xd" "<cmd>Trouble lsp_definitions toggle focus=false<cr>" "[T]rouble LSP Definitions Toggle")
-    (nnoremap "<leader>xD" "<cmd>Trouble lsp_declarations toggle focus=false<cr>" "[T]rouble LSP Declarations Toggle")
-    (nnoremap "<leader>xi" "<cmd>Trouble lsp_implementations toggle focus=false<cr>" "[T]rouble LSP Implementations Toggle")
-    (nnoremap "<leader>xt" "<cmd>Trouble lsp_type_definitions toggle focus=false<cr>" "[T]rouble LSP Type Definitions Toggle")
-    (nnoremap "<leader>xr" "<cmd>Trouble lsp_references toggle focus=false<cr>" "[T]rouble LSP References Toggle")
+    (nnoremap "<leader>xX" "<cmd>Trouble preview_split toggle filter.buf=0<cr>"
+      "[T]rouble Buffer Diagnostics Toggle"
+    )
+    (nnoremap "<leader>xd" "<cmd>Trouble lsp_definitions toggle focus=false<cr>"
+      "[T]rouble LSP Definitions Toggle"
+    )
+    (nnoremap "<leader>xD" "<cmd>Trouble lsp_declarations toggle focus=false<cr>"
+      "[T]rouble LSP Declarations Toggle"
+    )
+    (nnoremap "<leader>xi" "<cmd>Trouble lsp_implementations toggle focus=false<cr>"
+      "[T]rouble LSP Implementations Toggle"
+    )
+    (nnoremap "<leader>xt" "<cmd>Trouble lsp_type_definitions toggle focus=false<cr>"
+      "[T]rouble LSP Type Definitions Toggle"
+    )
+    (nnoremap "<leader>xr" "<cmd>Trouble lsp_references toggle focus=false<cr>"
+      "[T]rouble LSP References Toggle"
+    )
   ];
 }

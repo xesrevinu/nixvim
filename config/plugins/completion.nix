@@ -110,7 +110,7 @@
             max_item_count = 3;
             group_index = 5;
           }
-          {name = "nvim_lsp_signature_help";}
+          { name = "nvim_lsp_signature_help"; }
         ];
 
         window = {

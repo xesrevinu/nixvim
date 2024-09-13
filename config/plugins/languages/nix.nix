@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   extraPackages = with pkgs; [
     nixfmt-rfc-style
   ];
@@ -12,7 +13,7 @@
         enable = true;
         settings = {
           formatting = {
-            command = ["nixfmt"];
+            command = [ "nixfmt" ];
           };
         };
       };

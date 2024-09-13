@@ -88,7 +88,11 @@
       updatetime = 250;
 
       # Set completeopt to have a better completion experience
-      completeopt = ["menu" "menuone" "noselect"];
+      completeopt = [
+        "menu"
+        "menuone"
+        "noselect"
+      ];
 
       # Enable persistent undo history
       undofile = true;

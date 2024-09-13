@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   plugins.conform-nvim = {
     enable = true;
 
@@ -20,7 +21,7 @@
 
       formatters_by_ft = {
         # json = ["jq"];
-        lua = ["stylua"];
+        lua = [ "stylua" ];
         "_" = [
           "squeeze_blanks"
           "trim_whitespace"

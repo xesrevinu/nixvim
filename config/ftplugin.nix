@@ -7,7 +7,8 @@ let
         set formatoptions-=o
       '';
   };
-in {
+in
+{
   files = {
     "after/ftplugin/javascript.vim" = javascriptOpts;
     "after/ftplugin/typescript.vim" = javascriptOpts;

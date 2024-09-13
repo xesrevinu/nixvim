@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   autoGroups = {
     lint = {
       clear = true;
@@ -14,8 +15,8 @@
     enable = true;
 
     lintersByFt = {
-      lua = ["selene"];
-      nix = ["statix"];
+      lua = [ "selene" ];
+      nix = [ "statix" ];
     };
 
     autoCmd = {

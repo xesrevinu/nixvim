@@ -1,59 +1,69 @@
 let
-  mkKeymap = {
-    mode,
-    key,
-    action,
-    desc,
-    opts ? {},
-  }: {
-    inherit mode key action;
-    options =
-      {
+  mkKeymap =
+    {
+      mode,
+      key,
+      action,
+      desc,
+      opts ? { },
+    }:
+    {
+      inherit mode key action;
+      options = {
         inherit desc;
         silent = true;
         noremap = true;
-      }
-      // opts;
-  };
-in {
-  map = key: action: desc:
+      } // opts;
+    };
+in
+{
+  map =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "";
     };
 
-  nmap = key: action: desc:
+  nmap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "n";
-      opts = {noremap = false;};
+      opts = {
+        noremap = false;
+      };
     };
 
-  nnoremap = key: action: desc:
+  nnoremap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "n";
     };
 
-  vnoremap = key: action: desc:
+  vnoremap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "v";
     };
 
-  xnoremap = key: action: desc:
+  xnoremap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "x";
     };
 
-  inoremap = key: action: desc:
+  inoremap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "i";
     };
 
-  tnoremap = key: action: desc:
+  tnoremap =
+    key: action: desc:
     mkKeymap {
       inherit key action desc;
       mode = "t";
