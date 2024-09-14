@@ -6,7 +6,7 @@ return {
 		t({ "", "})" }),
 	}),
 	s("yy", {
-		t({ "yield*", " " }),
+		t({ "yield* " }),
 		i(1),
 	}),
 	s("internal", {

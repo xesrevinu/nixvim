@@ -67,10 +67,12 @@
 
             programs.deadnix.enable = true;
             programs.jsonfmt.enable = true;
+            programs.mdformat.enable = true;
             programs.nixfmt.enable = true;
             programs.shellcheck.enable = true;
             programs.shfmt.enable = true;
             programs.statix.enable = true;
+            programs.stylua.enable = true;
 
             settings.formatter = {
               yaml =
