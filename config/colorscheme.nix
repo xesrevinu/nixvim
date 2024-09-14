@@ -1,6 +1,6 @@
 {
   colorschemes = {
-    catpuccin = {
+    catppuccin = {
       enable = true;
       integrations = {
         cmp = true;
