@@ -91,7 +91,10 @@
                       ${pkgs.lib.getExe pkgs.yamlfmt} --conf ${conf} "$@"
                     ''
                   ];
-                  includes = [ "*.ya?ml" ];
+                  includes = [
+                    "*.yml"
+                    "*.yaml"
+                  ];
                 };
             };
           };
