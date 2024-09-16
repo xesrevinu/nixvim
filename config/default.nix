@@ -1,6 +1,7 @@
 {
   imports = [
     ./plugins
+    ./autocmds.nix
     ./colorscheme.nix
     ./ftplugin.nix
     ./keymaps.nix
