@@ -1,5 +1,7 @@
 {
   imports = [
+    ./astro.nix
+    ./css.nix
     ./json.nix
     ./lua.nix
     ./markdown.nix
