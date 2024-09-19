@@ -20,12 +20,6 @@
       };
     };
 
-    filetype = {
-      extension = {
-        mdx = "mdx";
-      };
-    };
-
     globals = {
       # Set the leader key to space
       mapleader = " ";
