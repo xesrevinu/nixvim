@@ -1,8 +1,17 @@
 {
   extraFiles = {
-    "after/queries/markdown/injections.scm" = builtins.readFile ./queries/markdown/injections.scm;
-    "after/queries/markdown/highlights.scm" = builtins.readFile ./queries/markdown/highlights.scm;
-    "after/queries/markdown/textobjects.scm" = builtins.readFile ./queries/markdown/textobjects.scm;
+    "markdown/injections.scm" = {
+      source = ./queries/markdown/injections.scm;
+      target = "after/queries/markdown/injections.scm";
+    };
+    "markdown/highlights.scm" = {
+      source = ./queries/markdown/highlights.scm;
+      target = "after/queries/markdown/highlights.scm";
+    };
+    "markdown/textobjects.scm" = {
+      source = ./queries/markdown/textobjects.scm;
+      target = "after/queries/markdown/textobjects.scm";
+    };
   };
 
   filetype = {
