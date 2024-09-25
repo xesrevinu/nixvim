@@ -1,5 +1,9 @@
 {
   plugins.lsp.servers = {
+    biome = {
+      enable = true;
+    };
+
     eslint = {
       enable = true;
       onAttach.function = ''
