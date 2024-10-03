@@ -1,5 +1,5 @@
 {
-  plugins.web-devicons = {
+  plugins.lazygit = {
     enable = true;
   };
 }

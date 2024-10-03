@@ -2,11 +2,12 @@
   imports = [
     ./languages
     ./autopairs.nix
+    ./comment.nix
     ./completion.nix
     ./conform.nix
-    ./diffview.nix
     ./dressing.nix
     ./gitsigns.nix
+    ./lazygit.nix
     ./lint.nix
     ./lsp.nix
     ./lspkind.nix
@@ -15,7 +16,6 @@
     ./luasnip.nix
     ./mini.nix
     ./oil.nix
-    ./spectre.nix
     ./telescope.nix
     ./tmux.nix
     ./treesitter.nix

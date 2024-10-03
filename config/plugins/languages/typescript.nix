@@ -14,7 +14,7 @@
       '';
     };
 
-    tsserver = {
+    ts-ls = {
       enable = true;
       settings = {
         maxTsServerMemory = 12288;

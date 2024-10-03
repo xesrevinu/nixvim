@@ -1,5 +1,5 @@
 {
-  plugins.diffview = {
+  plugins.comment = {
     enable = true;
   };
 }
