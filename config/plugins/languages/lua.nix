@@ -1,5 +1,5 @@
 {
   plugins.lsp.servers = {
-    lua-ls.enable = true;
+    lua_ls.enable = true;
   };
 }

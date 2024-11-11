@@ -56,8 +56,10 @@
       # Enable smart indenting (see https://stackoverflow.com/questions/1204149/smart-wrap-in-vim)
       breakindent = true;
 
-      # Disable text wrap
-      wrap = false;
+      # Enable breaking long lines of text
+      linebreak = true;
+      list = false;
+      wrap = true;
 
       # Enable incremental searching
       incsearch = true;

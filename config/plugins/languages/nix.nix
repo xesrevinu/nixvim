@@ -9,7 +9,7 @@
     nix-develop.enable = true;
 
     lsp.servers = {
-      nil-ls = {
+      nil_ls = {
         enable = true;
         settings = {
           formatting = {
