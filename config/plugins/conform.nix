@@ -17,7 +17,6 @@
       };
 
       formatters_by_ft = {
-        lua = [ "stylua" ];
         javascript = {
           __unkeyed-1 = "biome";
           __unkeyed-2 = "prettierd";
@@ -25,6 +24,7 @@
           timeout_ms = 2000;
           stop_after_first = true;
         };
+        lua = [ "stylua" ];
         "_" = [
           "trim_whitespace"
           "trim_newlines"
