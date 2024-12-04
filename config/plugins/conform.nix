@@ -11,19 +11,21 @@
       notify_on_error = false;
 
       formatters = {
-        squeeze_blanks = {
-          command = lib.getExe' pkgs.coreutils "cat";
-        };
         stylua = {
           command = lib.getExe pkgs.stylua;
         };
       };
 
       formatters_by_ft = {
-        # json = ["jq"];
         lua = [ "stylua" ];
+        javascript = {
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettierd";
+          __unkeyed-3 = "prettier";
+          timeout_ms = 2000;
+          stop_after_first = true;
+        };
         "_" = [
-          "squeeze_blanks"
           "trim_whitespace"
           "trim_newlines"
         ];

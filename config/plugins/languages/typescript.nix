@@ -2,12 +2,6 @@
   plugins.lsp.servers = {
     eslint = {
       enable = true;
-      # onAttach.function = ''
-      #   vim.api.nvim_create_autocmd("BufWritePre", {
-      #     buffer = bufnr,
-      #     command = "EslintFixAll",
-      #   })
-      # '';
     };
 
     ts_ls = {
