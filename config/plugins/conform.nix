@@ -8,6 +8,8 @@
     enable = true;
 
     settings = {
+      log_level = "debug";
+
       notify_on_error = false;
 
       formatters = {
@@ -16,20 +18,27 @@
         };
       };
 
-      formatters_by_ft = {
-        javascript = {
-          __unkeyed-1 = "biome";
-          __unkeyed-2 = "prettierd";
-          __unkeyed-3 = "prettier";
-          timeout_ms = 2000;
-          stop_after_first = true;
+      formatters_by_ft =
+        let
+          js_common = {
+            __unkeyed-1 = "biome";
+            __unkeyed-2 = "prettierd";
+            __unkeyed-3 = "prettier";
+            timeout_ms = 2000;
+            stop_after_first = true;
+          };
+        in
+        {
+          javascript = js_common;
+          javascriptreact = js_common;
+          lua = [ "stylua" ];
+          typescript = js_common;
+          typescriptreact = js_common;
+          "_" = [
+            "trim_whitespace"
+            "trim_newlines"
+          ];
         };
-        lua = [ "stylua" ];
-        "_" = [
-          "trim_whitespace"
-          "trim_newlines"
-        ];
-      };
 
       format_after_save =
         # lua
