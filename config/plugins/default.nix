@@ -5,6 +5,7 @@
     ./comment.nix
     ./completion.nix
     ./conform.nix
+    ./diffview.nix
     ./dressing.nix
     ./gitsigns.nix
     ./lazygit.nix
