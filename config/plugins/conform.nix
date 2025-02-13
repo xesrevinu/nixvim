@@ -13,6 +13,30 @@
       notify_on_error = false;
 
       formatters = {
+        prettier = {
+          require_cwd = true;
+          cwd = {
+            __raw =
+              # lua
+              ''
+                require("conform.util").root_file({
+                  -- https://prettier.io/docs/en/configuration.html
+                  ".prettierrc",
+                  ".prettierrc.json",
+                  ".prettierrc.yml",
+                  ".prettierrc.yaml",
+                  ".prettierrc.json5",
+                  ".prettierrc.js",
+                  ".prettierrc.cjs",
+                  ".prettierrc.mjs",
+                  ".prettierrc.toml",
+                  "prettier.config.js",
+                  "prettier.config.cjs",
+                  "prettier.config.mjs",
+                })
+              '';
+          };
+        };
         stylua = {
           command = lib.getExe pkgs.stylua;
         };
@@ -34,10 +58,6 @@
           lua = [ "stylua" ];
           typescript = js_common;
           typescriptreact = js_common;
-          "_" = [
-            "trim_whitespace"
-            "trim_newlines"
-          ];
         };
 
       format_after_save =
