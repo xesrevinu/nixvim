@@ -13,5 +13,11 @@
           '';
       };
     }
+    {
+      desc = "Automatically close quickfix window on selection";
+      event = [ "FileType" ];
+      pattern = [ "qf" ];
+      command = "nnoremap <buffer> <CR> <CR>:cclose<CR>";
+    }
   ];
 }
