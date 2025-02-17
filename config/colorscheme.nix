@@ -7,7 +7,7 @@
         no_bold = true;
         no_italic = true;
         integrations = {
-          cmp = true;
+          blink_cmp = true;
           gitsigns = true;
           indent_blankline = {
             enabled = false;

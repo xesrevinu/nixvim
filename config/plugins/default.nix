@@ -1,22 +1,18 @@
 {
   imports = [
     ./languages
-    ./autopairs.nix
+    ./blink.nix
     ./comment.nix
-    ./completion.nix
     ./conform.nix
-    ./dressing.nix
     ./fugitive.nix
     ./gitsigns.nix
-    ./lazygit.nix
     ./lint.nix
     ./lsp.nix
-    ./lspkind.nix
-    ./lualine.nix
     ./lualine.nix
     ./luasnip.nix
     ./mini.nix
     ./oil.nix
+    ./snacks.nix
     ./telescope.nix
     ./tmux.nix
     ./treesitter.nix

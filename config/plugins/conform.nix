@@ -68,7 +68,7 @@
               return
             end
 
-            return { async = true, lsp_fallback = true, stop_after_first = true }
+            return { async = true, lsp_format = "prefer", stop_after_first = true }
           end
         '';
     };

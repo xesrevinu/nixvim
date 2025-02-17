@@ -10,13 +10,6 @@ in
     lsp = {
       enable = true;
 
-      capabilities =
-        # lua
-        ''
-          local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-          capabilities = vim.tbl_deep_extend("force", capabilities, cmp_capabilities)
-        '';
-
       keymaps = {
         # Mappings for `vim.diagnostic.<action>` functions to be added when an
         # LSP it attached
