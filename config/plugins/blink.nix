@@ -9,17 +9,7 @@
       completion = {
         list = {
           selection = {
-            preselect = {
-              __raw =
-                # lua
-                ''
-                  function(ctx)
-                    return not require('blink.cmp').snippet_active({
-                      direction = 1
-                    })
-                  end
-                '';
-            };
+            preselect = false;
           };
         };
         documentation = {
