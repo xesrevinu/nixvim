@@ -1,6 +1,7 @@
 {
   imports = [
     ./languages
+    ./autopairs.nix
     ./blink.nix
     ./comment.nix
     ./conform.nix

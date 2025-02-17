@@ -75,7 +75,10 @@
                 # lua
                 ''
                   function(ctx)
-                    return ctx.trigger.initial_kind ~= 'trigger_character'
+                    return not (
+                      ctx.trigger.initial_kind == "manual" or 
+                      ctx.trigger.initial_kind == "trigger_character" 
+                    )
                   end
                 '';
             };

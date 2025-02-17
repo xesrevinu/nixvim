@@ -15,6 +15,8 @@
           try_as_border = true;
         };
       };
+
+      surround = { };
     };
   };
 }
