@@ -20,6 +20,9 @@
           show_in_snippet = false;
         };
       };
+      fuzzy = {
+        implementation = "prefer_rust";
+      };
       keymap = {
         preset = "default";
         "<CR>" = [
