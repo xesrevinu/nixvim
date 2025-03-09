@@ -16,9 +16,6 @@
           auto_show = true;
           auto_show_delay_ms = 100;
         };
-        trigger = {
-          show_in_snippet = false;
-        };
       };
       fuzzy = {
         implementation = "prefer_rust";
@@ -38,25 +35,13 @@
           "fallback"
         ];
         "<Tab>" = [
-          {
-            __raw =
-              # lua
-              ''
-                function(cmp)
-                  if cmp.snippet_active() then
-                    return cmp.accept()
-                  end
-                  return false
-                end
-              '';
-          }
-          "snippet_forward"
           "select_next"
+          "snippet_forward"
           "fallback"
         ];
         "<S-Tab>" = [
-          "snippet_backward"
           "select_prev"
+          "snippet_backward"
           "fallback"
         ];
       };
