@@ -21,7 +21,7 @@ in
         args = {
           "--analytics-disable",
           "--architect",
-          "--model=gemini-2.5-pro",
+          "--model=gemini-2.0-flash",
           "--pretty",
           "--stream",
         },
