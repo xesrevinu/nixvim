@@ -161,6 +161,16 @@ in
     # Plugin Keymaps
     ##########################################################################
 
+    # Aider
+    (nnoremap "<leader>a/" "<cmd>AiderTerminalToggle<cr>" "Open Aider")
+    (nnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
+    (vnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
+    (nnoremap "<leader>ac" "<cmd>AiderQuickSendCommand<cr>" "Send Command to Aider")
+    (nnoremap "<leader>ab" "<cmd>AiderQuickSendBuffer<cr>" "Send Buffer to Aider")
+    (nnoremap "<leader>a+" "<cmd>AiderQuickAddFile<cr>" "Add File to Aider")
+    (nnoremap "<leader>a-" "<cmd>AiderQuickDropFile<cr>" "Drop File from Aider")
+    (nnoremap "<leader>ar" "<cmd>AiderQuickReadOnlyFile<cr>" "Add File to Aider (read-only)")
+
     # Conform
     (nnoremap "<leader>f" {
       __raw =
