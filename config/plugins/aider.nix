@@ -13,18 +13,4 @@ let
 in
 {
   extraPlugins = [ nvim-aider ];
-
-  extraConfigLua =
-    # lua
-    ''
-      require("nvim_aider").setup({
-        args = {
-          "--analytics-disable",
-          "--architect",
-          "--model=gpt-4o",
-          "--pretty",
-          "--stream",
-        },
-      })
-    '';
 }
