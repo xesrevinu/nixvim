@@ -189,6 +189,9 @@ in
     # Fugitive
     (nnoremap "<leader>gs" "<cmd>G<cr>" "[G]it [S]tatus")
 
+    # Oil
+    (nnoremap "<leader>e" "<cmd>Oil --float<cr>" "Open Oil")
+
     # # Telescope
     # (nnoremap "<leader>sb" "<cmd>Telescope buffers<cr>" "[S]earch Open [B]uffers")
     # (nnoremap "<leader>sf" "<cmd>Telescope find_files hidden=true<cr>" "[S]earch [K]eymaps")
