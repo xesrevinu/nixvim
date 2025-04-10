@@ -189,42 +189,39 @@ in
     # Fugitive
     (nnoremap "<leader>gs" "<cmd>G<cr>" "[G]it [S]tatus")
 
-    # Oil
-    (nnoremap "<leader>e" "<cmd>Oil --float<cr>" "Open Oil")
-
-    # Telescope
-    (nnoremap "<leader>sb" "<cmd>Telescope buffers<cr>" "[S]earch Open [B]uffers")
-    (nnoremap "<leader>sf" "<cmd>Telescope find_files hidden=true<cr>" "[S]earch [K]eymaps")
-    (nnoremap "<leader>sg" "<cmd>Telescope live_grep<cr>" "[S]earch [G]rep")
-    (nnoremap "<leader>sh" "<cmd>Telescope help_tags<cr>" "[S]earch [H]elp")
-    (nnoremap "<leader>sk" "<cmd>Telescope keymaps<cr>" "[S]earch [K]eymaps")
-    (nnoremap "<leader>sr" "<cmd>Telescope oldfiles<cr>" "[S]earch [R]ecent Files")
-    (nnoremap "<leader>st" "<cmd>Telescope builtin<cr>" "[S]earch [T]elescope")
-    (nnoremap "<leader>sc" {
-      __raw =
-        # lua
-        ''
-          function()
-            require("telescope.builtin").commands(
-              require("telescope.themes").get_dropdown({
-                previewer = false,
-              })
-            )
-          end
-        '';
-    } "[S]earch [C]ommands")
-    (nnoremap "<leader>/" {
-      __raw =
-        # lua
-        ''
-          function()
-            require("telescope.builtin").current_buffer_fuzzy_find(
-              require("telescope.themes").get_dropdown({
-                previewer = false,
-              })
-            )
-          end
-        '';
-    } "[/] Fuzzily Search Current Buffer")
+    # # Telescope
+    # (nnoremap "<leader>sb" "<cmd>Telescope buffers<cr>" "[S]earch Open [B]uffers")
+    # (nnoremap "<leader>sf" "<cmd>Telescope find_files hidden=true<cr>" "[S]earch [K]eymaps")
+    # (nnoremap "<leader>sg" "<cmd>Telescope live_grep<cr>" "[S]earch [G]rep")
+    # (nnoremap "<leader>sh" "<cmd>Telescope help_tags<cr>" "[S]earch [H]elp")
+    # (nnoremap "<leader>sk" "<cmd>Telescope keymaps<cr>" "[S]earch [K]eymaps")
+    # (nnoremap "<leader>sr" "<cmd>Telescope oldfiles<cr>" "[S]earch [R]ecent Files")
+    # (nnoremap "<leader>st" "<cmd>Telescope builtin<cr>" "[S]earch [T]elescope")
+    # (nnoremap "<leader>sc" {
+    #   __raw =
+    #     # lua
+    #     ''
+    #       function()
+    #         require("telescope.builtin").commands(
+    #           require("telescope.themes").get_dropdown({
+    #             previewer = false,
+    #           })
+    #         )
+    #       end
+    #     '';
+    # } "[S]earch [C]ommands")
+    # (nnoremap "<leader>/" {
+    #   __raw =
+    #     # lua
+    #     ''
+    #       function()
+    #         require("telescope.builtin").current_buffer_fuzzy_find(
+    #           require("telescope.themes").get_dropdown({
+    #             previewer = false,
+    #           })
+    #         )
+    #       end
+    #     '';
+    # } "[/] Fuzzily Search Current Buffer")
   ];
 }

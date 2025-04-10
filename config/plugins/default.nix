@@ -15,7 +15,7 @@
     ./mini.nix
     ./oil.nix
     ./snacks.nix
-    ./telescope.nix
+    # ./telescope.nix
     ./tmux.nix
     ./treesitter.nix
     ./web-devicons.nix
