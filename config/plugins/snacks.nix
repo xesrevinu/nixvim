@@ -5,9 +5,10 @@
   ...
 }:
 {
-  extraPackages = with pkgs; [ fd ];
-
-  plugins.fzf-lua.enable = true;
+  extraPackages = with pkgs; [
+    fd
+    ripgrep
+  ];
 
   plugins.snacks = {
     enable = true;
@@ -21,8 +22,8 @@
           frecency = true;
         };
         layout = {
-          # The default layout for "telescopy" pickers, e.g. `files`, `commands`, ...
-          # It will not override non-standard pickers, e.g. `explorer`, `lines`, ...
+          # The default layout for "telescope-like" pickers (e.g. `files`, `commands`, ...)
+          # It will not override non-standard pickers (e.g. `explorer`, `lines`, ...)
           preset = {
             # lua
             __raw = ''
