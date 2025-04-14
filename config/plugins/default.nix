@@ -1,9 +1,9 @@
 {
   imports = [
     ./languages
-    ./aider.nix
     ./autopairs.nix
     ./blink.nix
+    ./codecompanion.nix
     ./comment.nix
     ./conform.nix
     ./fugitive.nix
@@ -14,9 +14,7 @@
     ./luasnip.nix
     ./mini.nix
     ./oil.nix
-    ./snacks.nix
-    # ./telescope.nix
-    ./tmux.nix
+    ./snacks
     ./treesitter.nix
     ./web-devicons.nix
   ];

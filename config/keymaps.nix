@@ -4,7 +4,7 @@ in
 {
   keymaps = [
     ##########################################################################
-    # General Keymaps
+    # General
     ##########################################################################
 
     # Disabled Keys
@@ -27,13 +27,53 @@ in
     # Turn off highlighted results
     (nnoremap "<leader>no" "<cmd>noh<cr>" "[N]o Highlight")
 
-    # Quickfix List
-    (nnoremap "<leader>cn" "<cmd>cnext<cr>zz" "[N]ext Quickfix List Item")
-    (nnoremap "<leader>cp" "<cmd>cprevious<cr>zz" "[P]revious Quickfix List Item")
-    (nnoremap "<leader>co" "<cmd>copen<cr>zz" "[O]pen Quickfix List")
-    (nnoremap "<leader>cc" "<cmd>cclose<cr>zz" "[C]lose Quickfix List")
+    # Rebind Escape
+    {
+      mode = "i";
+      key = "jj";
+      action = "<Esc>";
+      options = {
+        desc = "Exit Insert Mode";
+        nowait = true;
+      };
+    }
 
+    # Save and Quit
+    {
+      mode = "n";
+      key = "<leader>w";
+      action = "<cmd>w<cr>";
+      options = {
+        desc = "[W]rite Buffer";
+        silent = false;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>q";
+      action = "<cmd>q<cr>";
+      options = {
+        desc = "[Q]uit Buffer";
+        silent = false;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>z";
+      action = "<cmd>wq<cr>";
+      options = {
+        desc = "[W]rite [Q]uit Buffer";
+        silent = false;
+      };
+    }
+
+    (vnoremap "<" "<gv" "Visual Mode Outdent")
+    (vnoremap ">" ">gv" "Visual Mode Indent")
+
+    ##########################################################################
     # Window Management
+    ##########################################################################
+
     (nnoremap "<leader>w-" "<C-w>s" "Split [W]indow Vertical")
     (nnoremap "<leader>w|" "<C-w>v" "Split [W]indow Horizontal")
     (nnoremap "<leader>wd" "<C-w>c" "Delete [W]indow")
@@ -100,76 +140,65 @@ in
         '';
     } "Navigate Window Right")
 
-    # Rebind Escape
-    {
-      mode = "i";
-      key = "jj";
-      action = "<Esc>";
-      options = {
-        desc = "Exit Insert Mode";
-        nowait = true;
-      };
-    }
-
-    # Save and Quit
-    {
-      mode = "n";
-      key = "<leader>w";
-      action = "<cmd>w<cr>";
-      options = {
-        desc = "[W]rite Buffer";
-        silent = false;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>q";
-      action = "<cmd>q<cr>";
-      options = {
-        desc = "[Q]uit Buffer";
-        silent = false;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>z";
-      action = "<cmd>wq<cr>";
-      options = {
-        desc = "[W]rite [Q]uit Buffer";
-        silent = false;
-      };
-    }
-
-    (vnoremap "<" "<gv" "Visual Mode Outdent")
-    (vnoremap ">" ">gv" "Visual Mode Indent")
+    ##########################################################################
+    # Tab Management
+    ##########################################################################
+    (nnoremap "<leader><tab><tab>" "<cmd>tabnew<cr>" "Open new tab")
+    (nnoremap "<leader><tab>d" "<cmd>tabclose<cr>" "Close tab")
+    (nnoremap "gt" {
+      __raw =
+        # lua
+        ''
+          function()
+            local current = vim.fn.tabpagenr()
+            local total = vim.fn.tabpagenr("$")
+            if current == total then
+              vim.cmd("tabfirst")
+            else
+              vim.cmd("tabnext")
+            end
+          end
+        '';
+    } "Move to next tab (wraps around)")
+    (nnoremap "gT" {
+      __raw =
+        # lua
+        ''
+          function()
+            local current = vim.fn.tabpagenr()
+            if current == 1 then
+              vim.cmd("tablast")
+            else
+              vim.cmd("tabprevious")
+            end
+          end
+        '';
+    } "Move to previous tab (wraps around)")
 
     ##########################################################################
-    # Terminal Keymaps
+    # Terminal Management
     ##########################################################################
     (tnoremap "jj" "[[<C-\\><C-n>]]" "Enter Normal Mode (Terminal)")
-    (tnoremap "<Esc>" "[[<C-\><C-n>]]" "Enter Normal Mode (Terminal)")
+    (tnoremap "<Esc>" "[[<C-\\><C-n>]]" "Enter Normal Mode (Terminal)")
 
     (tnoremap "<C-h>" "[[<cmd>wincmd h<cr>]]" "Terminal Window Left")
     (tnoremap "<C-j>" "[[<cmd>wincmd j<cr>]]" "Terminal Window Down")
     (tnoremap "<C-k>" "[[<cmd>wincmd k<cr>]]" "Terminal Window Up")
     (tnoremap "<C-l>" "[[<cmd>wincmd l<cr>]]" "Terminal Window Right")
 
-    # Prevent input delay on space
-    (tnoremap "<space>" "<space>" "Default Space Functionality")
-
     ##########################################################################
     # Plugin Keymaps
     ##########################################################################
 
-    # Aider
-    (nnoremap "<leader>a/" "<cmd>AiderTerminalToggle<cr>" "Open Aider")
-    (nnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
-    (vnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
-    (nnoremap "<leader>ac" "<cmd>AiderQuickSendCommand<cr>" "Send Command to Aider")
-    (nnoremap "<leader>ab" "<cmd>AiderQuickSendBuffer<cr>" "Send Buffer to Aider")
-    (nnoremap "<leader>a+" "<cmd>AiderQuickAddFile<cr>" "Add File to Aider")
-    (nnoremap "<leader>a-" "<cmd>AiderQuickDropFile<cr>" "Drop File from Aider")
-    (nnoremap "<leader>ar" "<cmd>AiderQuickReadOnlyFile<cr>" "Add File to Aider (read-only)")
+    # # Aider
+    # (nnoremap "<leader>a/" "<cmd>AiderTerminalToggle<cr>" "Open Aider")
+    # (nnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
+    # (vnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
+    # (nnoremap "<leader>ac" "<cmd>AiderQuickSendCommand<cr>" "Send Command to Aider")
+    # (nnoremap "<leader>ab" "<cmd>AiderQuickSendBuffer<cr>" "Send Buffer to Aider")
+    # (nnoremap "<leader>a+" "<cmd>AiderQuickAddFile<cr>" "Add File to Aider")
+    # (nnoremap "<leader>a-" "<cmd>AiderQuickDropFile<cr>" "Drop File from Aider")
+    # (nnoremap "<leader>ar" "<cmd>AiderQuickReadOnlyFile<cr>" "Add File to Aider (read-only)")
 
     # Conform
     (nnoremap "<leader>f" {
@@ -185,46 +214,5 @@ in
           end
         '';
     } "[F]ormat Current Buffer")
-
-    # Fugitive
-    (nnoremap "<leader>gs" "<cmd>G<cr>" "[G]it [S]tatus")
-
-    # Oil
-    (nnoremap "<leader>e" "<cmd>Oil --float<cr>" "Open Oil")
-
-    # # Telescope
-    # (nnoremap "<leader>sb" "<cmd>Telescope buffers<cr>" "[S]earch Open [B]uffers")
-    # (nnoremap "<leader>sf" "<cmd>Telescope find_files hidden=true<cr>" "[S]earch [K]eymaps")
-    # (nnoremap "<leader>sg" "<cmd>Telescope live_grep<cr>" "[S]earch [G]rep")
-    # (nnoremap "<leader>sh" "<cmd>Telescope help_tags<cr>" "[S]earch [H]elp")
-    # (nnoremap "<leader>sk" "<cmd>Telescope keymaps<cr>" "[S]earch [K]eymaps")
-    # (nnoremap "<leader>sr" "<cmd>Telescope oldfiles<cr>" "[S]earch [R]ecent Files")
-    # (nnoremap "<leader>st" "<cmd>Telescope builtin<cr>" "[S]earch [T]elescope")
-    # (nnoremap "<leader>sc" {
-    #   __raw =
-    #     # lua
-    #     ''
-    #       function()
-    #         require("telescope.builtin").commands(
-    #           require("telescope.themes").get_dropdown({
-    #             previewer = false,
-    #           })
-    #         )
-    #       end
-    #     '';
-    # } "[S]earch [C]ommands")
-    # (nnoremap "<leader>/" {
-    #   __raw =
-    #     # lua
-    #     ''
-    #       function()
-    #         require("telescope.builtin").current_buffer_fuzzy_find(
-    #           require("telescope.themes").get_dropdown({
-    #             previewer = false,
-    #           })
-    #         )
-    #       end
-    #     '';
-    # } "[/] Fuzzily Search Current Buffer")
   ];
 }

@@ -3,10 +3,6 @@ let
 in
 {
   plugins = {
-    fidget = {
-      enable = true;
-    };
-
     lsp = {
       enable = true;
 

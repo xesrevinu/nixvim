@@ -1,3 +1,4 @@
+{ config, lib, ... }:
 {
   plugins.blink-cmp = {
     enable = true;
@@ -52,6 +53,12 @@
         preset = "luasnip";
       };
       sources = {
+        default = [
+          "lsp"
+          "buffer"
+          "snippets"
+          "path"
+        ] ++ (lib.optionals config.plugins.codecompanion.enable [ "codecompanion" ]);
         providers = {
           lsp = {
             score_offset = 5;

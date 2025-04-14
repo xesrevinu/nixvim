@@ -5,67 +5,95 @@
   ...
 }:
 {
-  extraPackages = with pkgs; [
-    fd
-    ripgrep
-  ];
+  extraPackages = with pkgs; [ ripgrep ];
 
-  plugins.snacks = {
-    enable = true;
-    settings = {
-      input = {
-        enabled = true;
+  plugins.snacks.settings.picker = {
+    enabled = true;
+    matcher = {
+      frecency = true;
+    };
+    layout = {
+      # The default layout for "telescope-like" pickers (e.g. `files`, `commands`, ...)
+      # It will not override non-standard pickers (e.g. `explorer`, `lines`, ...)
+      preset = {
+        # lua
+        __raw = ''
+          function()
+            return vim.o.columns >= 120 and 'telescope' or 'vertical'
+          end
+        '';
       };
-      picker = {
-        enabled = true;
-        matcher = {
-          frecency = true;
-        };
-        layout = {
-          # The default layout for "telescope-like" pickers (e.g. `files`, `commands`, ...)
-          # It will not override non-standard pickers (e.g. `explorer`, `lines`, ...)
-          preset = {
-            # lua
-            __raw = ''
-              function()
-                return vim.o.columns >= 120 and 'telescope' or 'vertical'
-              end
-            '';
-          };
-        };
-        layouts.telescope = {
+    };
+    layouts = {
+      telescope = {
+        __raw =
+          # lua
+          ''
+            {
+              -- Copy from https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#telescope
+              reverse = false,
+              layout = {
+                box = 'horizontal',
+                backdrop = false,
+                width = 0.8, -- Change the width
+                height = 0.9,
+                border = 'none',
+                {
+                  box = 'vertical',
+                  {
+                    win = 'input',
+                    height = 1,
+                    border = 'rounded',
+                    title = '{title} {live} {flags}',
+                    title_pos = 'center',
+                  },
+                  { win = 'list', title = ' Results ', title_pos = 'center', border = 'rounded' },
+                },
+                {
+                  win = 'preview',
+                  title = '{preview:Preview}',
+                  width = 0.51, -- Change the preview width
+                  border = 'rounded',
+                  title_pos = 'center',
+                },
+              },
+            }
+          '';
+      };
+    };
+    sources = {
+      projects = {
+        confirm = {
           __raw =
             # lua
             ''
-              {
-                -- Copy from https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#telescope
-                reverse = false,
-                layout = {
-                  box = 'horizontal',
-                  backdrop = false,
-                  width = 0.8, -- Change the width
-                  height = 0.9,
-                  border = 'none',
-                  {
-                    box = 'vertical',
-                    {
-                      win = 'input',
-                      height = 1,
-                      border = 'rounded',
-                      title = '{title} {live} {flags}',
-                      title_pos = 'center',
-                    },
-                    { win = 'list', title = ' Results ', title_pos = 'center', border = 'rounded' },
-                  },
-                  {
-                    win = 'preview',
-                    title = '{preview:Preview}',
-                    width = 0.51, -- Change the preview width
-                    border = 'rounded',
-                    title_pos = 'center',
-                  },
-                },
-              }
+              function(picker, item)
+                picker:close()
+                if item and item.file then
+                  -- Check if the project is already open by checking the cwd of each tab
+                  local tabpages = vim.api.nvim_list_tabpages()
+                  for _, tabpage in ipairs(tabpages) do
+                    local tab_cwd = vim.fn.getcwd(-1, tabpage)
+                    if tab_cwd == item.file then
+                      -- Change to the tab
+                      vim.api.nvim_set_current_tabpage(tabpage)
+                      return
+                    end
+                  end
+
+                  -- If there are already opened buffers, open a new tab
+                  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                    if vim.api.nvim_buf_is_loaded(bufnr) and vim.api.nvim_buf_get_name(bufnr) ~= "" then
+                      vim.cmd("tabnew")
+                      break
+                    end
+                  end
+                end
+
+                -- Change cwd to the selected project, only for this tab
+                vim.cmd("tcd " .. vim.fn.fnameescape(item.file))
+                Snacks.picker.smart()
+              end
             '';
         };
       };
@@ -73,7 +101,7 @@
   };
 
   keymaps =
-    (lib.mkIf (config.plugins.snacks.enable && lib.hasAttr "picker" config.plugins.snacks.settings))
+    lib.mkIf (config.plugins.snacks.enable && lib.hasAttr "picker" config.plugins.snacks.settings)
       [
         {
           mode = "n";

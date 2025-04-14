@@ -121,4 +121,15 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>e";
+      action = ''<cmd>Oil --float<cr>'';
+      options = {
+        desc = "Open Oil";
+      };
+    }
+  ];
 }
