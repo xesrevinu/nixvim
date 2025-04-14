@@ -6,6 +6,5 @@
     ./input.nix
     ./notifier.nix
     ./picker.nix
-    ./terminal.nix
   ];
 }

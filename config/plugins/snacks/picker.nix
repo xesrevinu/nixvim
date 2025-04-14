@@ -5,7 +5,10 @@
   ...
 }:
 {
-  extraPackages = with pkgs; [ ripgrep ];
+  extraPackages = with pkgs; [
+    fd
+    ripgrep
+  ];
 
   plugins.snacks.settings.picker = {
     enabled = true;

@@ -1,5 +1,5 @@
 let
-  inherit (import ./utilities.nix) nnoremap tnoremap vnoremap;
+  inherit (import ./utilities.nix) nnoremap vnoremap;
 in
 {
   keymaps = [
@@ -144,8 +144,8 @@ in
     # Tab Management
     ##########################################################################
     (nnoremap "<leader><tab><tab>" "<cmd>tabnew<cr>" "Open new tab")
-    (nnoremap "<leader><tab>d" "<cmd>tabclose<cr>" "Close tab")
-    (nnoremap "gt" {
+    (nnoremap "<leader><tab>d" "<cmd>tabclose<cr>" "Close current tab")
+    (nnoremap "<leader>tl" {
       __raw =
         # lua
         ''
@@ -160,7 +160,7 @@ in
           end
         '';
     } "Move to next tab (wraps around)")
-    (nnoremap "gT" {
+    (nnoremap "<leader>th" {
       __raw =
         # lua
         ''
@@ -178,28 +178,66 @@ in
     ##########################################################################
     # Terminal Management
     ##########################################################################
-    (tnoremap "jj" "[[<C-\\><C-n>]]" "Enter Normal Mode (Terminal)")
-    (tnoremap "<Esc>" "[[<C-\\><C-n>]]" "Enter Normal Mode (Terminal)")
-
-    (tnoremap "<C-h>" "[[<cmd>wincmd h<cr>]]" "Terminal Window Left")
-    (tnoremap "<C-j>" "[[<cmd>wincmd j<cr>]]" "Terminal Window Down")
-    (tnoremap "<C-k>" "[[<cmd>wincmd k<cr>]]" "Terminal Window Up")
-    (tnoremap "<C-l>" "[[<cmd>wincmd l<cr>]]" "Terminal Window Right")
+    {
+      mode = "t";
+      key = "<Esc>";
+      action = "<C-\\><C-n>";
+      options = {
+        desc = "Enter normal mode";
+      };
+    }
+    {
+      mode = "t";
+      key = "jj";
+      action = "<C-\\><C-n>";
+      options = {
+        desc = "Enter normal mode";
+      };
+    }
+    {
+      mode = "t";
+      key = "<C-h>";
+      action = "<cmd>wincmd h<cr>";
+      options = {
+        desc = "Move to left window";
+      };
+    }
+    {
+      mode = "t";
+      key = "<C-l>";
+      action = "<cmd>wincmd l<cr>";
+      options = {
+        desc = "Move to right window";
+      };
+    }
+    {
+      mode = "t";
+      key = "<C-k>";
+      action = "<cmd>wincmd k<cr>";
+      options = {
+        desc = "Move to top window";
+      };
+    }
+    {
+      mode = "t";
+      key = "<C-k>";
+      action = "<cmd>wincmd j<cr>";
+      options = {
+        desc = "Move to bottom window";
+      };
+    }
+    {
+      mode = "t";
+      key = "<Space>";
+      action = "<Space>";
+      options = {
+        desc = "Remove input delay on space in terminal";
+      };
+    }
 
     ##########################################################################
     # Plugin Keymaps
     ##########################################################################
-
-    # # Aider
-    # (nnoremap "<leader>a/" "<cmd>AiderTerminalToggle<cr>" "Open Aider")
-    # (nnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
-    # (vnoremap "<leader>as" "<cmd>AiderTerminalSend<cr>" "Send to Aider")
-    # (nnoremap "<leader>ac" "<cmd>AiderQuickSendCommand<cr>" "Send Command to Aider")
-    # (nnoremap "<leader>ab" "<cmd>AiderQuickSendBuffer<cr>" "Send Buffer to Aider")
-    # (nnoremap "<leader>a+" "<cmd>AiderQuickAddFile<cr>" "Add File to Aider")
-    # (nnoremap "<leader>a-" "<cmd>AiderQuickDropFile<cr>" "Drop File from Aider")
-    # (nnoremap "<leader>ar" "<cmd>AiderQuickReadOnlyFile<cr>" "Add File to Aider (read-only)")
-
     # Conform
     (nnoremap "<leader>f" {
       __raw =

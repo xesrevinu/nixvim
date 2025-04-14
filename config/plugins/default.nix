@@ -15,6 +15,7 @@
     ./mini.nix
     ./oil.nix
     ./snacks
+    ./toggleterm
     ./treesitter.nix
     ./web-devicons.nix
   ];
