@@ -9,6 +9,9 @@
 
     diagnostics = {
       virtual_text = false;
+      virtual_lines = {
+        current_line = true;
+      };
       signs = true;
       underline = true;
       update_in_insert = true;
@@ -110,6 +113,9 @@
 
       # Time in milliseconds to wait for a mapped sequence to complete
       timeoutlen = 400;
+
+      # Set the default border for all floating windows to rounded
+      winborder = "rounded";
     };
   };
 }

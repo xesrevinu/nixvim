@@ -17,6 +17,9 @@
           auto_show = true;
           auto_show_delay_ms = 100;
         };
+        trigger = {
+          show_in_snippet = false;
+        };
       };
       fuzzy = {
         implementation = "prefer_rust";

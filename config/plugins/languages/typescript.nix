@@ -2,6 +2,16 @@
   plugins.lsp.servers = {
     biome = {
       enable = true;
+      rootDir =
+        # lua
+        ''
+          function() 
+            return require("lspconfig.util").root_pattern("biome.json")
+          end
+        '';
+      settings.extraConfig = {
+        single_file_support = false;
+      };
     };
 
     eslint = {
