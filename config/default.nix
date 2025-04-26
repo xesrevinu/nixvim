@@ -7,5 +7,6 @@
     ./keymaps.nix
     ./settings.nix
     ./usercmds.nix
+    ./nixpkgs.nix
   ];
 }
