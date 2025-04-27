@@ -64,10 +64,10 @@
         ] ++ (lib.optionals config.plugins.codecompanion.enable [ "codecompanion" ]);
         providers = {
           lsp = {
-            score_offset = 5;
+            score_offset = 4;
           };
           snippets = {
-            score_offset = 4;
+            score_offset = 5;
             should_show_items = {
               __raw =
                 # lua
