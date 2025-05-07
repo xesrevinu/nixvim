@@ -1,17 +1,8 @@
+{ config, lib, ... }:
 {
   plugins.lsp.servers = {
     biome = {
       enable = true;
-      rootDir =
-        # lua
-        ''
-          function() 
-            return require("lspconfig.util").root_pattern("biome.json")
-          end
-        '';
-      settings.extraConfig = {
-        single_file_support = false;
-      };
     };
 
     eslint = {
@@ -45,6 +36,19 @@
             includeInlayVariableTypeHints = true;
             includeInlayVariableTypeHintsWhenTypeMatchesName = true;
           };
+        };
+      };
+    };
+  };
+
+  plugins.lsp-format = lib.mkIf config.plugins.lsp-format.enable {
+    settings = {
+      typescript = {
+        tab_width = {
+          __raw = ''
+            function()
+              return vim.opt.shiftwidth:get()
+            end'';
         };
       };
     };

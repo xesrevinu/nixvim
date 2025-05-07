@@ -1,5 +1,5 @@
 {
-  lsp.servers.yamlls = {
+  lsp.servers.ansiblels = {
     enable = true;
   };
 }

@@ -7,7 +7,7 @@
     viAlias = true;
     vimAlias = true;
 
-    diagnostics = {
+    diagnostic.settings = {
       virtual_text = false;
       signs = true;
       underline = true;

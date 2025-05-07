@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ansible.nix
     ./astro.nix
     ./css.nix
     ./json.nix

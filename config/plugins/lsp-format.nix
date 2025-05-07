@@ -1,5 +1,5 @@
 {
-  lsp.servers.yamlls = {
+  plugins.lsp-format = {
     enable = true;
   };
 }
