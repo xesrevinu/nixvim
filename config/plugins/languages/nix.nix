@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   extraPackages = with pkgs; [
     nixfmt-rfc-style
@@ -9,13 +9,24 @@
     nix-develop.enable = true;
 
     lsp.servers = {
-      nil_ls = {
+      nixd = {
         enable = true;
-        settings = {
-          formatting = {
-            command = [ "nixfmt" ];
+        settings =
+          let
+            flake = ''builtins.getFlake "github:IMax153/nix-config'';
+            flakeNixvim = ''(builtins.getFlake "github:IMax153/nixvim)""'';
+          in
+          {
+            nixpkgs = {
+              expr = "import ${flake}.inputs.nixpkgs { }";
+            };
+            formatting = {
+              command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+            };
+            options = {
+              nixvim.expr = ''${flakeNixvim}.packages.${pkgs.system}.default.options'';
+            };
           };
-        };
       };
     };
   };
