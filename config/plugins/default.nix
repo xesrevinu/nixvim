@@ -15,7 +15,7 @@
     ./mini.nix
     ./oil.nix
     ./snacks
-    ./toggleterm
+    ./tmux-navigator.nix
     ./treesitter.nix
     ./web-devicons.nix
   ];

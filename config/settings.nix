@@ -100,7 +100,7 @@
       signcolumn = "yes";
 
       # Enable access to System Clipboard
-      clipboard = "unnamedplus";
+      clipboard = "unnamed,unnamedplus";
 
       # Enable cursor line highlight
       cursorline = true;
