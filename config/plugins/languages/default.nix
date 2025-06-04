@@ -8,6 +8,7 @@
     ./markdown.nix
     ./mdx.nix
     ./nix.nix
+    ./rust.nix
     ./terraform.nix
     ./typescript.nix
     ./yaml.nix
