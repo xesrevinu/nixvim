@@ -3,6 +3,7 @@
     ./ansible.nix
     ./astro.nix
     ./css.nix
+    ./golang.nix
     ./json.nix
     ./lua.nix
     ./markdown.nix
