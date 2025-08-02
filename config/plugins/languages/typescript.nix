@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   plugins.lsp.servers = {
     biome = {
@@ -99,21 +98,5 @@
     #     };
     #   };
     # };
-  };
-
-  plugins.lsp-format = lib.mkIf config.plugins.lsp-format.enable {
-    settings = {
-      typescript = {
-        tab_width = {
-          __raw =
-            # lua
-            ''
-              function()
-                return vim.opt.shiftwidth:get()
-              end
-            '';
-        };
-      };
-    };
   };
 }

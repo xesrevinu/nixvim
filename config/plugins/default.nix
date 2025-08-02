@@ -5,11 +5,11 @@
     ./blink.nix
     ./codecompanion.nix
     ./comment.nix
+    ./conform.nix
     ./fugitive.nix
     ./gitsigns.nix
     ./lint.nix
     ./lsp.nix
-    ./lsp-format.nix
     ./lualine.nix
     ./luasnip.nix
     ./mini.nix
