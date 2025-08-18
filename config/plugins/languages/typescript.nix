@@ -60,6 +60,7 @@
               };
               tsserver = {
                 maxTsServerMemory = 12288;
+                pluginPaths = [ "./node_modules" ];
               };
             };
             javascript = {
