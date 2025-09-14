@@ -60,7 +60,7 @@ in
               # lua
               ''
                 function()
-                  vim.diagnostic.open_float(nil, { focus = false })
+                  vim.diagnostic.open_float({ border = "rounded" })
                 end
               '';
           } "LSP: Show Line [D]iagnostics")
