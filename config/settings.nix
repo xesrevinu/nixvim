@@ -16,7 +16,6 @@
       float = {
         border = "rounded";
         source = "always";
-        focusable = false;
       };
     };
 
