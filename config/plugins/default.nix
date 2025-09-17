@@ -3,10 +3,8 @@
     ./languages
     ./autopairs.nix
     ./blink.nix
-    ./codecompanion.nix
     ./comment.nix
     ./conform.nix
-    ./fugitive.nix
     ./gitsigns.nix
     ./lint.nix
     ./lsp.nix
@@ -14,6 +12,7 @@
     ./luasnip.nix
     ./mini.nix
     ./oil.nix
+    ./render-markdown.nix
     ./snacks
     ./tmux-navigator.nix
     ./treesitter.nix
