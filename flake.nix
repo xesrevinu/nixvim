@@ -55,6 +55,9 @@
           devShells.default = pkgs.mkShell {
             name = "nixvim";
             inputsFrom = [ config.treefmt.build.devShell ];
+            buildInputs = with pkgs; [
+              nixd
+            ];
           };
 
           packages = {

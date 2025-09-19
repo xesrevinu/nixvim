@@ -1,0 +1,32 @@
+{
+  "load_direnv": "shell_hook",
+  "languages": {
+    "Nix": {
+      "language_servers": [
+        "nixd",
+        "!nil"
+      ]
+    }
+  },
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "diagnostic": {
+          "suppress": [
+            "sema-extra-with"
+          ]
+        }
+      },
+      "initialization_options": {
+        "formatting": {
+          "external": {
+            "command": "nix",
+            "arguments": [
+              "fmt"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
