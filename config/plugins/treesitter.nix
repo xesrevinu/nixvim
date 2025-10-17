@@ -4,9 +4,37 @@
       enable = true;
       nixvimInjections = true;
       settings = {
+        autopairs.enable = true;
         indent.enable = true;
         highlight.enable = true;
         incremental_selection.enable = true;
+        auto_install = true;
+        ensure_installed = [
+          "bash"
+          "c"
+          "html"
+          "css"
+          "javascript"
+          "jsdoc"
+          "json"
+          "lua"
+          "luadoc"
+          "luap"
+          "nix"
+          "rust"
+          "java"
+          "markdown"
+          "markdown_inline"
+          "python"
+          "query"
+          "regex"
+          "tsx"
+          "typescript"
+          "vim"
+          "vimdoc"
+          "toml"
+          "yaml"
+        ];
       };
     };
 
