@@ -11,7 +11,6 @@
       virtual_text = false;
       signs = true;
       underline = true;
-      update_in_insert = true;
       severity_sort = true;
       float = {
         border = "rounded";

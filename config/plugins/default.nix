@@ -12,7 +12,6 @@
     ./luasnip.nix
     ./mini.nix
     ./oil.nix
-    ./render-markdown.nix
     ./snacks
     ./tmux-navigator.nix
     ./treesitter.nix
