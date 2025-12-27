@@ -34,14 +34,14 @@
       # Tsserver Settings
       tsserver_max_memory = 12288;
       tsserver_file_preferences = {
-        includeInlayParameterNameHints = "all";
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-        includeInlayVariableTypeHints = true;
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true;
-        includeInlayPropertyDeclarationTypeHints = true;
-        includeInlayFunctionParameterTypeHints = true;
-        includeInlayEnumMemberValueHints = true;
-        includeInlayFunctionLikeReturnTypeHints = true;
+        includeInlayParameterNameHints = "literals";
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false;
+        includeInlayVariableTypeHints = false;
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false;
+        includeInlayPropertyDeclarationTypeHints = false;
+        includeInlayFunctionParameterTypeHints = false;
+        includeInlayEnumMemberValueHints = false;
+        includeInlayFunctionLikeReturnTypeHints = false;
       };
       tsserver_format_options = {
         insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = true;

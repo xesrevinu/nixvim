@@ -6,7 +6,7 @@ let
 in
 {
   plugins.tailwind-tools = {
-    enable = true;
+    enable = false;
     settings = {
       extension = {
         patterns = {

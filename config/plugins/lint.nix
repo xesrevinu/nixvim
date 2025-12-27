@@ -30,8 +30,8 @@
         "BufEnter"
         "BufWritePost"
         "InsertLeave"
-        "TextChanged"
-        "TextChangedI"
+        # "TextChanged"
+        # "TextChangedI"
       ];
     };
   };
